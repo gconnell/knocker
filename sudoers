@@ -1,0 +1,2 @@
+knocker ALL = NOPASSWD: /root/opensesame.sh
+knocker ALL = NOPASSWD: /root/closesesame.sh
