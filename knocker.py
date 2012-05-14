@@ -5,6 +5,7 @@ import hashlib
 import os
 import socket
 import struct
+import sys
 import time
 
 SECRET = None
