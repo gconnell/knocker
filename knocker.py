@@ -7,11 +7,12 @@ import socket
 import struct
 import time
 
-SECRET = 'FOO'
+SECRET = None
 UID = 1001
 GID = 1001
 
 def shas():
+  assert SECRET is not None
   t = time.time()
   t -= t % 60
   for i in [t - 60, t, t + 60]:
@@ -22,6 +23,11 @@ def shas():
     yield hasher.hexdigest()
 
 def main():
+  global SECRET
+  if len(sys.argv) != 2:
+    print 'Usage:  %s <SECRET>' % sys.argv[0]
+    sys.exit(1)
+  SECRET = sys.argv[1]
   print 'STARTING'
   print 'Dropping permissions to knocker'
   os.setgid(GID)
@@ -46,6 +52,7 @@ def main():
       time.sleep(5)
       status, output = commands.getstatusoutput(
         '/usr/bin/sudo /root/closesesame.sh')
+
 
 if __name__ == '__main__':
   main()
