@@ -24,5 +24,6 @@ sudo cp closesesame.sh /root/closesesame.sh
 sudo cp knocker.conf /etc/init/knocker.conf
 sudo cp knocker.py /root/knocker.py
 sudo ln -s /lib/init/upstart-job /etc/init.d/knocker
+echo 'CHANGE THE SECRET IN /etc/init/knocker.conf'
 echo 'ADD THE FOLLOWING TO YOUR /etc/sudoers FILE:'
 cat sudoers

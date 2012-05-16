@@ -7,6 +7,23 @@ Server drops permissions on startup, sudoers file allows the
 users to just run the open/close scripts which add and remove
 a firewall hole.
 
+USAGE
+-----
+
+The server can be installed by running the install.sh script.
+
+To connect to the server over SSH, run the cli.py script with the hostname
+you are connecting to.  Example:
+
+  ./cli.py my.host.com
+
+You will be prompted for a knocker secret.  Enter the secret you configured your
+server with in the /etc/init/knocker.conf file created by the install script.
+If the server accepts your secret, it will open up the SSH port on your
+machine for a short period of time (5 seconds).  The ./cli.py script will then
+attempt to execute an SSH connection against the host.  If it succeeds, you will
+get a prompt on your remote server.
+
 NOTES
 -----
 

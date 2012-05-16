@@ -31,9 +31,9 @@ def main():
   t = int(time.time())
   t -= t % 60
   hasher = hashlib.sha1()
-  hasher.update(getpass.getpass().strip())
+  hasher.update(getpass.getpass('Knocker secret').strip())
   hasher.update(struct.pack('>i', t))
-  
+
   s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   print hasher.hexdigest()
   s.sendto(hasher.hexdigest(), (host, 7777))
